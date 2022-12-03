@@ -1,8 +1,8 @@
 # See: https://arduino.github.io/arduino-cli/latest/platform-specification/
 
-menu.fcpu=CPU Frequency
-menu.flash_size=FLASH Size
-menu.ex_fat=EXFAT FS Support
+menu.f_cpu=CPU Frequency
+menu.fsize=FLASH Size
+menu.exfat=EXFAT FS Support
 
 ##############################################################
 
@@ -34,26 +34,26 @@ arduFPGA_Game.bootloader.unlock_bits=0x3F
 arduFPGA_Game.bootloader.lock_bits=0x2F
 
 arduFPGA_Game.build.mcu=atmega32u4
-arduFPGA_Game.build.f_cpu=16000000L
+## arduFPGA_Game.build.f_cpu=16000000L
 arduFPGA_Game.build.vid=0x2341
 arduFPGA_Game.build.pid=0x8037
 arduFPGA_Game.build.usb_product="arduFpga Game"
 arduFPGA_Game.build.board=arduFPGA_Game
 arduFPGA_Game.build.core=arduFPGA_Arduino
 arduFPGA_Game.build.variant=arduFPGA_Game
-arduFPGA_Game.build.extra_flags={build.usb_flags}
+arduFPGA_Game.build.extra_flags={build.usb_flags} {build.exfat}
 
 arduFPGA_Game.menu.fcpu.16=16 MHz
-arduFPGA_Game.menu.fcpu.16.build.freqcpu=16000000L
+arduFPGA_Game.menu.fcpu.16.build.f_cpu=16000000L
 arduFPGA_Game.menu.fcpu.100=100 MHz
-arduFPGA_Game.menu.fcpu.100.build.freqcpu=100000000L
+arduFPGA_Game.menu.fcpu.100.build.f_cpu=100000000L
 arduFPGA_Game.menu.flash_size.32=32KB
 arduFPGA_Game.menu.flash_size.32.build.fsize=32768
 arduFPGA_Game.menu.flash_size.63=63KB
 arduFPGA_Game.menu.flash_size.63.build.fsize=61440
-arduFPGA_Game.menu.ex_fat.no=YES
-arduFPGA_Game.menu.ex_fat.no.build.ramsupport=-DUSE_EXFAT=0
-arduFPGA_Game.menu.ex_fat.yes=NO
-arduFPGA_Game.menu.ex_fat.yes.build.ramsupport=-DUSE_EXFAT=1
+arduFPGA_Game.menu.ex_fat.no=NO
+arduFPGA_Game.menu.ex_fat.no.build.exfat=-DUSE_EXFAT=0
+arduFPGA_Game.menu.ex_fat.yes=YES
+arduFPGA_Game.menu.ex_fat.yes.build.exfat=-DUSE_EXFAT=1
 
 ##############################################################

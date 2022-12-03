@@ -691,7 +691,7 @@ static inline void USB_ClockEnable()
 #elif F_CPU == 8000000UL
 	PLLCSR &= ~(1<<PINDIV);                  // Need  8 MHz xtal
 #else
-#error "Clock rate of F_CPU not supported"
+//#error "Clock rate of F_CPU not supported"
 #endif
 
 #elif defined(__AVR_AT90USB82__) || defined(__AVR_AT90USB162__) || defined(__AVR_ATmega32U2__) || defined(__AVR_ATmega16U2__) || defined(__AVR_ATmega8U2__)
@@ -720,7 +720,7 @@ static inline void USB_ClockEnable()
 	// for Atmel AT90USB128x and AT90USB64x
 	PLLCSR = (PLLCSR & ~(1<<PLLP2)) | ((1<<PLLP1) | (1<<PLLP0)); // Need 8 MHz xtal
 #else
-#error "Clock rate of F_CPU not supported"
+//#error "Clock rate of F_CPU not supported"
 #endif
 #else
 #error "USB Chip not supported, please defined method of USB PLL initialization"
