@@ -13,7 +13,7 @@
       "platforms":
       [
         {
-          "category": "arduFPGA Atmega32U4",
+          "category": "arduFPGA",
           "help":
           {
             "online": "https://github.com/dev-board-tech"
