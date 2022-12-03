@@ -1,0 +1,59 @@
+# See: https://arduino.github.io/arduino-cli/latest/platform-specification/
+
+menu.fcpu=CPU Frequency
+menu.flash_size=FLASH Size
+menu.ex_fat=EXFAT FS Support
+
+##############################################################
+
+arduFPGA_Game.name=arduFPGA Game
+
+arduFPGA_Game.vid.0=0x2341
+arduFPGA_Game.pid.0=0x0037
+arduFPGA_Game.upload_port.0.vid=0x2341
+arduFPGA_Game.upload_port.0.pid=0x0037
+
+arduFPGA_Game.upload.tool=avrdude
+arduFPGA_Game.upload.tool.default=avrdude
+arduFPGA_Game.upload.tool.network=arduino_ota
+arduFPGA_Game.upload.protocol=avr109
+arduFPGA_Game.upload.maximum_size=61440
+arduFPGA_Game.upload.maximum_data_size=2560
+arduFPGA_Game.upload.speed=115200
+arduFPGA_Game.upload.disable_flushing=true
+arduFPGA_Game.upload.use_1200bps_touch=true
+arduFPGA_Game.upload.wait_for_upload_port=true
+
+arduFPGA_Game.bootloader.tool=avrdude
+arduFPGA_Game.bootloader.tool.default=avrdude
+arduFPGA_Game.bootloader.low_fuses=0xff
+arduFPGA_Game.bootloader.high_fuses=0xd8
+arduFPGA_Game.bootloader.extended_fuses=0xcb
+arduFPGA_Game.bootloader.file=caterina/Caterina-Micro.hex
+arduFPGA_Game.bootloader.unlock_bits=0x3F
+arduFPGA_Game.bootloader.lock_bits=0x2F
+
+arduFPGA_Game.build.mcu=atmega32u4
+arduFPGA_Game.build.f_cpu=16000000L
+arduFPGA_Game.build.vid=0x2341
+arduFPGA_Game.build.pid=0x8037
+arduFPGA_Game.build.usb_product="arduFpga Game"
+arduFPGA_Game.build.board=arduFPGA_Game
+arduFPGA_Game.build.core=arduFPGA_Arduino
+arduFPGA_Game.build.variant=arduFPGA_Game
+arduFPGA_Game.build.extra_flags={build.usb_flags}
+
+arduFPGA_Game.menu.fcpu.16=16 MHz
+arduFPGA_Game.menu.fcpu.16.build.freqcpu=16000000L
+arduFPGA_Game.menu.fcpu.100=100 MHz
+arduFPGA_Game.menu.fcpu.100.build.freqcpu=100000000L
+arduFPGA_Game.menu.flash_size.32=32KB
+arduFPGA_Game.menu.flash_size.32.build.fsize=32768
+arduFPGA_Game.menu.flash_size.63=63KB
+arduFPGA_Game.menu.flash_size.63.build.fsize=61440
+arduFPGA_Game.menu.ex_fat.no=YES
+arduFPGA_Game.menu.ex_fat.no.build.ramsupport=-DUSE_EXFAT=0
+arduFPGA_Game.menu.ex_fat.yes=NO
+arduFPGA_Game.menu.ex_fat.yes.build.ramsupport=-DUSE_EXFAT=1
+
+##############################################################

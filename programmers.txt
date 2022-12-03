@@ -1,0 +1,7 @@
+avrisp.name=arduFPGA-BootLoader
+avrisp.communication=serial
+avrisp.protocol=stk500v1
+avrisp.program.protocol=stk500v1
+avrisp.program.tool=avrdude
+avrisp.program.tool.default=avrdude
+avrisp.program.extra_params=-P{serial.port}

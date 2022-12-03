@@ -1,0 +1,41 @@
+{
+  "packages":
+  [
+    {
+      "maintainer": "devboardtech",
+      "help":
+      {
+        "online": "https://github.com/dev-board-tech"
+      },
+      "websiteURL": "https://github.com/dev-board-tech",
+      "email": "morgoth@devboard.tech",
+      "name": "arduFpga_Arduino",
+      "platforms":
+      [
+        {
+          "category": "arduFPGA Atmega32U4",
+          "help":
+          {
+            "online": "https://github.com/dev-board-tech"
+          },
+          "url": "",
+          "checksum": "",
+          "name": "arduFPGA Atmega32U4",
+          "version": "0.0.1",
+          "architecture": "avr",
+          "archiveFileName": "arduFPGA_Arduino.zip",
+          "size": "220194",
+          "toolsDependencies": [],
+          "boards":
+          [
+            {
+              "name": "arduFPGA Game"
+            }
+          ]
+        }
+      ],
+      "tools": []
+    }
+  ]
+}
+
