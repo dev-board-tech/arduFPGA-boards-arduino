@@ -1,8 +1,8 @@
 # See: https://arduino.github.io/arduino-cli/latest/platform-specification/
 
-menu.f_cpu=CPU Frequency
-menu.fsize=FLASH Size
-menu.exfat=EXFAT FS Support
+menu.fcpu=CPU Frequency
+menu.flash_size=FLASH Size
+menu.ex_fat=EXFAT FS Support
 
 ##############################################################
 
