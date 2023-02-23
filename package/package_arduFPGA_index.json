@@ -18,13 +18,13 @@
           {
             "online": "https://github.com/dev-board-tech"
           },
-          "url": "https://github.com/dev-board-tech/arduFPGA-boards-arduino/archive/refs/tags/arduFPGA_Arduino_V0.0.2.zip",
-          "checksum": "SHA-256:39df090196228d4e7a083e13dff0c77aa5ace7ca02f4678d1d62873d77214574",
+          "url": "https://github.com/dev-board-tech/arduFPGA-boards-arduino/archive/refs/tags/arduFPGA_Arduino_V0.0.3.zip",
+          "checksum": "SHA-256:3b03430d52558fbe8116a63337693f598c27449078889a6334ec5467371acb0f",
           "name": "arduFPGA Boards",
-          "version": "0.0.2",
+          "version": "0.0.3",
           "architecture": "avr",
-          "archiveFileName": "arduFPGA_Arduino_V0.0.2.zip",
-          "size": "2665423",
+          "archiveFileName": "arduFPGA_Arduino_V0.0.3.zip",
+          "size": "2667017",
           "toolsDependencies": [],
           "boards":
           [
