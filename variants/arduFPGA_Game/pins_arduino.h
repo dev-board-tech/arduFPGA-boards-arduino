@@ -23,7 +23,153 @@
 #ifndef Pins_Arduino_h
 #define Pins_Arduino_h
 
-//#include "../leonardo/pins_arduino.h"
+/*
+This ports does not exist in the original micro controller.
+This ports are used by boot loader, but can be used even by the application.
+*/
+#define PINA								_SFR_IO8(0x00)
+#define DDRA								_SFR_IO8(0x01)
+#define PORTA								_SFR_IO8(0x02)
+
+/*
+Offsets of memory types in external SPI FLASH memory.
+*/
+#define FLASH_APP_EXPLORER_START_ADDR		0x20000
+#define FLASH_APP_USER_START_ADDR			0x50000
+
+#define FLASH_APP_ROM_OFFSET				0x00000
+#define FLASH_APP_ROM_ZIZE					0x20000
+#define FLASH_APP_EEP_OFFSET				0x20000
+#define FLASH_APP_EEP_SIZE					0x01000
+#define FLASH_APP_RAM_OFFSET				0x21000
+#define FLASH_APP_RAM_ZIZE					0x0E000
+#define FLASH_APP_PATH_OFFSET				0x2E000
+#define FLASH_APP_MEMORY_SIZES_OFFSET		0x2FC00
+#define FLASH_APP_MEMORY_SIZES_PGM_OFFSET	0x4
+#define FLASH_APP_MEMORY_SIZES_RAM_OFFSET	0x8
+#define FLASH_APP_MEMORY_SIZES_EEP_OFFSET	0xC
+
+/*
+These IO's are placed in SRAM data space, we need to subtract 0x20 value to address them correctly.
+Those IO's are used by the bootloader, but can be used by the user application as well.
+*/
+#define SEC_REG_ADDR						_SFR_IO8(0xD8)
+#define F_CNT_L								_SFR_IO8(0xDB)
+#define F_CNT_H								_SFR_IO8(0xDC)
+#define F_DATA_L							_SFR_IO8(0xDD)
+#define F_DATA_H							_SFR_IO8(0xDE)
+#define BOOT_STAT							_SFR_IO8(0xDF)
+
+#define BOOT_STAT_FLASH_APP_NR				(1 << 0)
+#define BOOT_STAT_EEP_EDITED				(1 << 1)
+#define BOOT_STAT_NMI_INT_ENABLE			(1 << 2)
+#define BOOT_STAT_APP_PGM_WR_EN				(1 << 3)
+#define BOOT_STAT_IO_RST					(1 << 4)
+#define BOOT_STAT_DEBUG_EN					(1 << 7)
+/*
+First stage bootloader API's.
+*/
+#define BOOT_VECTOR_MAIN					(0x7802)
+#define BOOT_VECTOR_SET_SERVICE_VECT		(0x7803)
+#define BOOT_VECTOR_FLASH_WRITE				(0x7804)
+#define BOOT_VECTOR_FLASH_DES_ERASE			(0x7805)
+#define BOOT_VECTOR_FLASH_DES_WRITE			(0x7806)
+#define LED_B						0b00100000
+#define LED_R						0b01000000
+#define LED_G						0b10000000
+
+/*******************************************/
+
+//#define SPI_SCK_DIR					DDRB
+//#define SPI_SCK_PORT				PORTB
+//#define SPI_SCK_PIN					(1<<1)
+
+//#define SPI_MISO_DIR				DDRB
+//#define SPI_MISO_PORT				PORTB
+//#define SPI_MISO_PIN				(1<<3)
+
+//#define SPI_MOSI_DIR				DDRB
+//#define SPI_MOSI_PORT				PORTB
+//#define SPI_MOSI_PIN				(1<<2)
+
+//#define SPI_CS_1_DIR				DDRD
+//#define SPI_CS_1_PORT				PORTD
+//#define SPI_CS_1_PIN				(1<<6)
+//#define SPI_SSD1331_CS_ASSERT()		SPI_CS_1_PORT &= ~SPI_CS_1_PIN
+//#define SPI_SSD1331_CS_DEASSERT()	SPI_CS_1_PORT |= SPI_CS_1_PIN
+//#define SPI_SSD1306_CS_ASSERT()		SPI_CS_1_PORT &= ~SPI_CS_1_PIN
+//#define SPI_SSD1306_CS_DEASSERT()	SPI_CS_1_PORT |= SPI_CS_1_PIN
+//#define SPI_ST7735_CS_ASSERT()		SPI_CS_1_PORT &= ~SPI_CS_1_PIN
+//#define SPI_ST7735_CS_DEASSERT()	SPI_CS_1_PORT |= SPI_CS_1_PIN
+
+/*#define SPI_CS_2_DIR				DDRD
+#define SPI_CS_2_PORT				PORTD
+#define SPI_CS_2_PIN				(1<<2)
+#define SPI_uSD_CS_ASSERT()			SPI_CS_2_PORT &= ~SPI_CS_2_PIN
+#define SPI_uSD_CS_DEASSERT()		SPI_CS_2_PORT |= SPI_CS_2_PIN
+
+#define SPI_CS_3_DIR				DDRB
+#define SPI_CS_3_PORT				PORTB
+#define SPI_CS_3_PIN				(1<<3)
+#define SPI_ADC_CS_ASSERT()			SPI_CS_3_PORT &= ~SPI_CS_3_PIN
+#define SPI_ADC_CS_DEASSERT()		SPI_CS_3_PORT |= SPI_CS_3_PIN
+
+#define SPI_CS_6_DIR				DDRB
+#define SPI_CS_6_PORT				PORTB
+#define SPI_CS_6_PIN				(1<<0)
+#define SPI_xCS_CS_ASSERT()			SPI_CS_6_PORT &= ~SPI_CS_6_PIN
+#define SPI_xCS_CS_DEASSERT()		SPI_CS_6_PORT |= SPI_CS_6_PIN
+#define VS10xx_xCS_ASSERT()			SPI_xCS_CS_ASSERT()
+#define VS10xx_xCS_DEASSERT()		SPI_xCS_CS_DEASSERT()
+
+#define SPI_CS_7_DIR				DDRD
+#define SPI_CS_7_PORT				PORTD
+#define SPI_CS_7_PIN				(1<<5)
+#define SPI_xDCS_CS_ASSERT()		SPI_CS_7_PORT &= ~SPI_CS_7_PIN
+#define SPI_xDCS_CS_DEASSERT()		SPI_CS_7_PORT |= SPI_CS_7_PIN
+#define VS10xx_xDCS_ASSERT()		SPI_xDCS_CS_ASSERT()
+#define VS10xx_xDCS_DEASSERT()		SPI_xDCS_CS_DEASSERT()*/
+
+/*******************************************/
+#define SPI_VS10xx_RST        3
+#define SPI_VS10xx_DREQ       23
+#define SPI_VS10xx_xCS        17
+#define SPI_VS10xx_xDCS       30
+#define SPI_ADC_CS            14
+#define SPI_uSD_CD            2
+#define SPI_uSD_CS            0
+#define SPI_SCREEN_CS         12
+#define SPI_SCREEN_RST        6
+#define SPI_SCREEN_DC         4
+
+#define SPI_SCREEN_ON()		SPI_CS_5_PORT &= ~SPI_CS_5_PIN
+#define SPI_SCREEN_OFF()	SPI_CS_5_PORT |= SPI_CS_5_PIN
+/*******************************************/
+
+/*#define VS10xx_RST_DIR				DDRD
+#define VS10xx_RST_PORT				PORTD
+#define VS10xx_RST_PIN				(1<<0)
+
+#define VS10xx_DREQ_DIR				DDRF
+#define VS10xx_DREQ_PORT			PORTF
+#define VS10xx_DREQ_IN				PINF
+#define VS10xx_DREQ_PIN				(1<<0)*/
+
+/*******************************************/
+
+/*#define uSD_CD_DIR					DDRD
+#define uSD_CD_PORT					PORTD
+#define uSD_CD_IN					  PIND
+#define uSD_CD_PIN					(1<<1)*/
+
+
+/*******************************************/
+/*******************************************/
+/* Platform dependent definitions */
+
+typedef uint8_t pio_t;
+
+/*******************************************/
 
 #undef LED_BUILTIN
 
@@ -102,12 +248,6 @@
 #define NUM_DIGITAL_PINS  31
 #define NUM_ANALOG_INPUTS 12
 
-#define TX_RX_LED_INIT	DDRD |= (1<<5), DDRB |= (1<<0)
-#define TXLED0			PORTD |= (1<<5)
-#define TXLED1			PORTD &= ~(1<<5)
-#define RXLED0			PORTB |= (1<<0)
-#define RXLED1			PORTB &= ~(1<<0)
-
 #define PIN_WIRE_SDA         (2)
 #define PIN_WIRE_SCL         (3)
 
@@ -115,8 +255,6 @@ static const uint8_t SDA = PIN_WIRE_SDA;
 static const uint8_t SCL = PIN_WIRE_SCL;
 
 #define LED_BUILTIN 13
-#define LED_BUILTIN_RX 17
-#define LED_BUILTIN_TX 30
 
 // Map SPI port to 'new' pins D14..D17
 #define PIN_SPI_SS    (17)
@@ -217,7 +355,7 @@ extern const uint8_t PROGMEM analog_pin_to_channel_PGM[];
 // and writing)
 const uint16_t PROGMEM port_to_mode_PGM[] = {
   NOT_A_PORT,
-  NOT_A_PORT,
+  (uint16_t) &DDRA,
   (uint16_t) &DDRB,
   (uint16_t) &DDRC,
   (uint16_t) &DDRD,
@@ -227,7 +365,7 @@ const uint16_t PROGMEM port_to_mode_PGM[] = {
 
 const uint16_t PROGMEM port_to_output_PGM[] = {
   NOT_A_PORT,
-  NOT_A_PORT,
+  (uint16_t) &PORTA,
   (uint16_t) &PORTB,
   (uint16_t) &PORTC,
   (uint16_t) &PORTD,
@@ -237,7 +375,7 @@ const uint16_t PROGMEM port_to_output_PGM[] = {
 
 const uint16_t PROGMEM port_to_input_PGM[] = {
   NOT_A_PORT,
-  NOT_A_PORT,
+  (uint16_t) &PINA,
   (uint16_t) &PINB,
   (uint16_t) &PINC,
   (uint16_t) &PIND,
@@ -281,6 +419,15 @@ const uint8_t PROGMEM digital_pin_to_port_PGM[] = {
   PB, // D28 / D10 - A10 - PB6
   PD, // D29 / D12 - A11 - PD6
   PD, // D30 / TX Led - PD5
+  
+  PA, // D31 / PA0 SPI_DES_CS
+  PA, // D32 / PA1 - Input KEY L    -Output SPI_APP_CS
+  PA, // D33 / PA2 - Input KEY R    -Output PWM_VOLUME
+  PA, // D34 / PA3 - Input KEY INT  -Output PWM_VOLUME
+  PA, // D35 / PA4 - Input KEY A    -Output DISC_USR_KBD
+  PA, // D36 / PA5 - Input KEY B    -Output USB_NTSC_EN
+  PA, // D37 / PA6 - Input KEY DN   -Output AUD_NTSC_EN
+  PA, // D38 / PA7 - Input KEY UP   -Output 
 };
 
 const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] = {
@@ -319,6 +466,15 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] = {
   _BV(6), // D28 / D10 - A10 - PB6
   _BV(6), // D29 / D12 - A11 - PD6
   _BV(5), // D30 / TX Led - PD5
+  
+  _BV(0), // D30 / PA0 SPI_DES_CS
+  _BV(1), // D31 / PA1 - Input KEY L    -Output SPI_APP_CS
+  _BV(2), // D32 / PA2 - Input KEY R    -Output PWM_VOLUME
+  _BV(3), // D33 / PA3 - Input KEY INT  -Output PWM_VOLUME
+  _BV(4), // D34 / PA4 - Input KEY A    -Output DISC_USR_KBD
+  _BV(5), // D35 / PA5 - Input KEY B    -Output USB_NTSC_EN
+  _BV(6), // D36 / PA6 - Input KEY DN   -Output AUD_NTSC_EN
+  _BV(7), // D37 / PA7 - Input KEY UP   -Output 
 };
 
 const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
