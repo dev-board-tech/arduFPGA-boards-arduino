@@ -51,6 +51,17 @@ Version Modified By Date     Comments
 #define TIMSK1 TIMSK
 #endif
 
+#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega8A__) || defined(__AVR_ATmega16__) || defined(__AVR_ATmega16A__) || defined(__AVR_ATmega32__) || defined(__AVR_ATmega32A__) || defined(__AVR_ATmega64__) || defined(__AVR_ATmega64A__) || defined(__AVR_ATmega128__) || defined(__AVR_ATmega128A__)
+#define FOC2	7
+#define WGM20	6
+#define COM21	5
+#define COM20	4
+#define WGM21	3
+#define CS22	2
+#define CS21	1
+#define CS20	0
+#endif
+
 // timerx_toggle_count:
 //  > 0 - duration specified
 //  = 0 - stopped
@@ -86,7 +97,6 @@ volatile long timer5_toggle_count;
 volatile uint8_t *timer5_pin_port;
 volatile uint8_t timer5_pin_mask;
 #endif
-
 
 #if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
 

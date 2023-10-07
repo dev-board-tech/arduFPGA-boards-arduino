@@ -18,7 +18,7 @@
 
 #include "HID.h"
 
-#if defined(USBCON)
+#if USBCON_MOD
 
 HID_& HID()
 {

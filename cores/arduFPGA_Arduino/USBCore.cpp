@@ -21,7 +21,7 @@
 #include "PluggableUSB.h"
 #include <stdlib.h>
 
-#if defined(USBCON)
+#if USBCON_MOD
 
 /** Pulse generation counters to keep track of the number of milliseconds remaining for each pulse type */
 #define TX_RX_LED_PULSE_MS 100

@@ -355,32 +355,68 @@ extern const uint8_t PROGMEM analog_pin_to_channel_PGM[];
 // and writing)
 const uint16_t PROGMEM port_to_mode_PGM[] = {
   NOT_A_PORT,
+#ifdef DDRA
   (uint16_t) &DDRA,
+#endif
+#ifdef DDRB
   (uint16_t) &DDRB,
+#endif
+#ifdef DDRC
   (uint16_t) &DDRC,
+#endif
+#ifdef DDRD
   (uint16_t) &DDRD,
+#endif
+#ifdef DDRE
   (uint16_t) &DDRE,
+#endif
+#ifdef DDRF
   (uint16_t) &DDRF,
+#endif
 };
 
 const uint16_t PROGMEM port_to_output_PGM[] = {
   NOT_A_PORT,
+#ifdef PORTA
   (uint16_t) &PORTA,
+#endif
+#ifdef PORTB
   (uint16_t) &PORTB,
+#endif
+#ifdef PORTC
   (uint16_t) &PORTC,
+#endif
+#ifdef PORTD
   (uint16_t) &PORTD,
+#endif
+#ifdef PORTE
   (uint16_t) &PORTE,
+#endif
+#ifdef PORTF
   (uint16_t) &PORTF,
+#endif
 };
 
 const uint16_t PROGMEM port_to_input_PGM[] = {
   NOT_A_PORT,
+#ifdef PINA
   (uint16_t) &PINA,
+#endif
+#ifdef PINB
   (uint16_t) &PINB,
+#endif
+#ifdef PINC
   (uint16_t) &PINC,
+#endif
+#ifdef PIND
   (uint16_t) &PIND,
+#endif
+#ifdef PINE
   (uint16_t) &PINE,
+#endif
+#ifdef PINF
   (uint16_t) &PINF,
+#endif
 };
 
 const uint8_t PROGMEM digital_pin_to_port_PGM[] = {

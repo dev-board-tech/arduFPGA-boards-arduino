@@ -37,8 +37,8 @@ compiler.ldflags=
 compiler.libraries.ldflags=
 compiler.size.cmd=avr-size
 compiler.objdump.cmd=avr-objdump
-compiler.objdump.flags=-h -S
 compiler.objdump.separator=>
+compiler.objdump.flags=--disassemble --source --line-numbers --demangle --section=.text
 compiler.romtobin.cmd=avr-objcopy
 
 # This can be overridden in boards.txt
@@ -74,10 +74,10 @@ recipe.ar.pattern="{compiler.path}{compiler.ar.cmd}" {compiler.ar.flags} {compil
 recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}" {compiler.c.elf.flags} -mmcu={build.mcu} {compiler.c.elf.extra_flags} {compiler.ldflags} -o "{build.path}/{build.project_name}.elf" {object_files} {compiler.libraries.ldflags} "{build.path}/{archive_file}" "-L{build.path}" -lm
 
 ## Create output files (.eep and .hex)
-# recipe.objcopy.lss.pattern="{compiler.path}{compiler.objdump.cmd}" {compiler.objdump.flags} "{build.path}/{build.project_name}.elf" {compiler.objdump.separator} "{build.path}/{build.project_name}.lss"
 recipe.objcopy.bin.pattern="{compiler.path}{compiler.romtobin.cmd}" -O binary -j .text "{build.path}/{build.project_name}.elf" "{build.path}/{build.project_name}.app"
 recipe.objcopy.eep.pattern="{compiler.path}{compiler.objcopy.cmd}" {compiler.objcopy.eep.flags} {compiler.objcopy.eep.extra_flags} "{build.path}/{build.project_name}.elf" "{build.path}/{build.project_name}.eep"
 recipe.objcopy.hex.pattern="{compiler.path}{compiler.elf2hex.cmd}" {compiler.elf2hex.flags} {compiler.elf2hex.extra_flags} "{build.path}/{build.project_name}.elf" "{build.path}/{build.project_name}.hex"
+recipe.objcopy.lss.pattern=sh -c "{compiler.path}{compiler.objdump.cmd} {compiler.objdump.flags} {build.path}/{build.project_name}.elf > {build.path}/{build.project_name}.lss"
 
 ## Save hex
 recipe.output.tmp_file={build.project_name}.hex
