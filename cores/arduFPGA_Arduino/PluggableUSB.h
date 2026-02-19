@@ -23,7 +23,7 @@
 #include "USBAPI.h"
 #include <stdint.h>
 
-#if defined(USBCON)
+#if USBCON_MOD
 
 class PluggableUSBModule {
 public:

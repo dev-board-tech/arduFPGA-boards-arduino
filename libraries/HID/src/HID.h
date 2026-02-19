@@ -23,7 +23,7 @@
 #include <Arduino.h>
 #include "PluggableUSB.h"
 
-#if defined(USBCON)
+#if USBCON_MOD
 
 #define _USING_HID
 

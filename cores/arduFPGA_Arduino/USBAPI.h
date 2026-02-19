@@ -38,7 +38,7 @@ typedef unsigned long u32;
 #define USB_EP_SIZE 64
 #endif
 
-#if defined(USBCON)
+#if USBCON_MOD
 
 #include "USBDesc.h"
 #include "USBCore.h"
